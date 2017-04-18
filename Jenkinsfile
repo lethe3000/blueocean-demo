@@ -20,7 +20,7 @@ node ('master') {
     echo 'staging'
 }
 
-stage name: 'Deploy'
+stage 'Deploy'
 input message: "Does ${jettyUrl}staging/ look good?"
 node ('master') {
 try {
