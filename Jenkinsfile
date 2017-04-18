@@ -7,11 +7,13 @@ node ('master'){
 }
 
 stage 'QA'
-parallel(longerTests: {
-    echo "QA stage long run..."
-}, quickerTests: {
-    echo "QA stage quick run..."
-})
+node ('master'){
+    parallel(longerTests: {
+        echo "QA stage long run..."
+    }, quickerTests: {
+        echo "QA stage quick run..."
+    })
+}
 
 stage name: 'Staging', concurrency: 1
 node ('master') {
