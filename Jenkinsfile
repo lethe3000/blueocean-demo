@@ -25,6 +25,7 @@ input message: "Does ${jettyUrl}staging/ look good?"
 node ('master') {
 try {
     echo 'Before production good'
+    sh "sleep 30"
 } catch (NoSuchMethodError _) {
     echo 'Checkpoint feature available in CloudBees Jenkins Enterprise.'
 }
